@@ -56,6 +56,15 @@ body, input, button{
   position: absolute;
   width: 15px;
   height: 15px;
+  margin-left: -7.5px;
+  margin-top: -7.5px;
   border-radius: 50%;
   background: red;
+}
+
+.cursor-img{
+  width: 25px;
+  position: absolute;
+  z-index: 10;
+  display: none;
 }

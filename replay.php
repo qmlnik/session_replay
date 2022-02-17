@@ -42,5 +42,9 @@
     <div class="section-container">
       <button class="section-button">Befejezés</button>
     </div>
+    <div class="section-container">
+      <a href="index.html">Újrakezdés</a>
+    </div>
+    <img class="cursor-img js-cursor-img" src="cursor.png">
   </body>
 </html>

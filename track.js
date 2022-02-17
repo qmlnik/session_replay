@@ -2,6 +2,13 @@ $(document).ready(function(){
   let allAction = {};
   let currentActionId = 1;
   let clickPuffer = [];
+  let cursorX = 0, cursorY = 0;
+  const intervalMS = 200;
+
+  $("body").on("mousemove", function(event){
+    cursorX = event.pageX;
+    cursorY = event.pageY;
+  });
 
   $(document).on("click", function(event){
     let clickXY =[];
@@ -22,6 +29,8 @@ $(document).ready(function(){
     currentAction.click = copyClickPuffer;
     clickPuffer = [];
 
+    currentAction.cursorPosition = [cursorX, cursorY];
+
     currentAction.scroll = $("body")[0].scrollTop;
 
     currentAction.inputText1 = $(".js-input-text-1").val();
@@ -31,10 +40,11 @@ $(document).ready(function(){
 
     allAction[currentActionId] = currentAction;
     currentActionId++;
-  }, 1000);
+  }, intervalMS);
 
   $("form").on("submit", function(){
     allAction.lastActionId = currentActionId - 1;
+    allAction.intervalMS = intervalMS;
     $(".js-all-action").val(JSON.stringify(allAction));
     return true;
   });
